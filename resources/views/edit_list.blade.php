@@ -20,7 +20,12 @@
             <div class="mb-3">
                 <label for="taskname" class="form-label">Task Name</label>
                 <input type="text" class="form-control mb-3" id="taskname" name="taskname" value="{{ $todo_arr->name }}">
-                <div id="namehelp" class="form-text">We'll never share your email with anyone else.</div>
+                {{-- <div id="namehelp" class="form-text">We'll never share your email with anyone else.</div> --}}
+                @error('taskname')
+                    <div class="text-red-500 mt-2 text-sm form-text">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             
             <div class="d-flex justify-content-center">
