@@ -19,16 +19,22 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <td>ID</td>
+                    <td>No</td>
                     <td>Name</td>
                     <td>Created At</td>
                     <td>Action</td>
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $no = 0;
+                @endphp
                 @foreach ($todo_arr as $td)
+                @php
+                    $no++;
+                @endphp
                 <tr>
-                    <td>{{$td->id}}</td>
+                    <td>{{$no}}</td>
                     <td>{{$td->name}}</td>
                     <td>{{$td->created_at}}</td>
                     <td>
