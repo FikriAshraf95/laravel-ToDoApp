@@ -20,7 +20,6 @@
             <div class="mb-3">
                 <label for="taskname" class="form-label">Task Name</label>
                 <input type="text" class="form-control mb-3 @error ('taskname')border-red-500 @enderror" id="taskname" name="taskname">
-                {{-- <div id="namehelp" class="form-text">We'll never share your email with anyone else.</div> --}}
                 @error('taskname')
                     <div class="text-red-500 mt-2 text-sm form-text">
                         {{ $message }}

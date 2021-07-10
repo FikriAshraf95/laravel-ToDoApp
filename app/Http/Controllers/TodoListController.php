@@ -13,9 +13,12 @@ class TodoListController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('view_list')->with('todo_arr', todo_list::all());
-        // return view('view_list')->with(todo_list::all());
+    {   
+        $tasks = todo_list::orderBy('id')->get(); // --> Eloquent Method
+        // $tasks = todo_list::all()->sortBy('id'); --> Collection Method
+        $view = view('view_list')->with('todo_arr', $tasks);
+
+        return $view;
         // return todo_list::all();  --> return as JSON
     }
 
@@ -47,10 +50,12 @@ class TodoListController extends Controller
             'name' => $fields['taskname']
         ]);
 
+        // Method 1
         // $todo_list = todo_list::create([
         //     'name' => $request -> input('taskname')
         // ]);
 
+        // Method 2
         // $todo = new todo_list();
         // $todo->name = $request -> input('taskname');
         // $todo->save();
